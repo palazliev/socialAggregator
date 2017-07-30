@@ -1,6 +1,14 @@
 <html>
   <body>
-    <%= user.image %>
-    <%= user.name %>
-  </body> 
+    <img src="<%= user.image %>">
+    <%= user.displayName %>
+    <% if(user.facebook) { %>
+    <img src="<%= user.facebook.image %>">
+    <% } %>
+    I have <%= user.facebook.friends %> friends
+    <div>
+      <a href="/auth/google">Sign in with Google <% if(user.google) { %>IN<% } %></a>
+      <a href="/auth/facebook">Sign in with Facebook <% if(user.facebook) { %>IN<% } %></a>
+    </div>
+  </body>
 </html>
